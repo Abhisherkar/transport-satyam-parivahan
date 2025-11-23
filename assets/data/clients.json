@@ -1,0 +1,8 @@
+{
+  "clients": [
+    { "name": "Client A", "logo": "assets/img/clients/client-a.png" },
+    { "name": "Client B", "logo": "assets/img/clients/client-b.png" },
+    { "name": "Partner X", "logo": "assets/img/clients/partner-x.png" },
+    { "name": "Partner Y", "logo": "assets/img/clients/partner-y.png" }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "TRK1001": { "status": "In Transit", "origin": "Gurgaon", "destination": "Surat", "updated": "2025-11-01T10:22:00Z" },
+  "TRK1002": { "status": "Delivered", "origin": "Ahmedabad", "destination": "Kadapa", "updated": "2025-11-05T14:45:00Z" },
+  "TRK1003": { "status": "Pending Pickup", "origin": "Mumbai", "destination": "Indore", "updated": "2025-11-12T08:10:00Z" },
+  "TRK1004": { "status": "Out for Delivery", "origin": "Pune", "destination": "Nashik", "updated": "2025-11-20T07:05:00Z" }
+}
