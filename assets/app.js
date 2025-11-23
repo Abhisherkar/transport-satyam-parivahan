@@ -2,10 +2,11 @@ const yearEl=document.getElementById("year");
 if(yearEl){yearEl.textContent=String(new Date().getFullYear());}
 const nav=document.querySelector(".site-nav");
 const navToggle=document.querySelector(".nav-toggle");
-if(navToggle&&nav){navToggle.addEventListener("click",()=>{nav.classList.toggle("open");});}
+if(navToggle&&nav){navToggle.addEventListener("click",()=>{const open=nav.classList.toggle("open");navToggle.setAttribute("aria-expanded",open?"true":"false");});}
 const sections=document.querySelectorAll(".section");
 const navLinks=document.querySelectorAll(".site-nav a");
-function setActive(hash){const id=(hash||"#home").replace("#","");sections.forEach(s=>{s.classList.toggle("active",s.id===id)});navLinks.forEach(a=>{a.classList.toggle("active",a.getAttribute("href")==="#"+id)});window.scrollTo({top:0,behavior:"smooth"});}
+function setActive(hash){const id=(hash||"#home").replace("#","");sections.forEach(s=>{s.classList.toggle("active",s.id===id)});navLinks.forEach(a=>{a.classList.toggle("active",a.getAttribute("href")==="#"+id)});if(nav){nav.classList.remove("open");}window.scrollTo({top:0,behavior:"smooth"});}
+navLinks.forEach(a=>{a.addEventListener("click",()=>{if(nav){nav.classList.remove("open");navToggle&&navToggle.setAttribute("aria-expanded","false");}})});
 window.addEventListener("hashchange",()=>setActive(location.hash));
 setActive(location.hash||"#home");
 const tabs=document.querySelectorAll(".tab");
