@@ -26,7 +26,7 @@
     <section class="service-page">
       <div class="container">
         <div class="service-card">
-          <h1 class="brand-name">Service Overview</h1>
+          <h1 id="svc-title" class="brand-name">Service Overview</h1>
           <p>Fleet Owners & Transport Contractors providing ODC Consignment all India Service.</p>
           <p>We offer Parcel Services, Part Load, Full Load, ODC Project Cargo and Container Services across major corridors with on‑time delivery and transparent tracking.</p>
           <p>Contact us for booking and quotes: WhatsApp 7972699155 • Call 7972699155 / 8149034736 • Email contact@satyamparivahan.com</p>
@@ -48,6 +48,6 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent=String(new Date().getFullYear());</script>
+  <script>document.getElementById('year').textContent=String(new Date().getFullYear());const p=new URLSearchParams(location.search);const name=p.get('service');if(name){document.getElementById('svc-title').textContent=name;}</script>
 </body>
 </html>
