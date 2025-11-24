@@ -6,7 +6,7 @@
   <title>Satyam Parivahan | Inquiry</title>
   <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body>
+<body class="inquiry">
   <header class="site-header">
     <div class="container header-wrap">
       <a href="index.html#home" class="brand">
@@ -30,29 +30,29 @@
         <form id="inquiryForm" class="form">
           <div class="form-row">
             <label for="name">Full Name</label>
-            <input id="name" name="name" placeholder="Your name" required>
+            <div class="input"><span class="icon">👤</span><input id="name" name="name" placeholder="Your name" required></div>
           </div>
           <div class="form-row">
             <label for="company">Company</label>
-            <input id="company" name="company" placeholder="Company name">
+            <div class="input"><span class="icon">🏢</span><input id="company" name="company" placeholder="Company name"></div>
           </div>
           <div class="form-row">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com">
+            <div class="input"><span class="icon">✉️</span><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
           </div>
           <div class="form-row">
             <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="7972699155" required>
+            <div class="input has-prefix"><span class="icon">📞</span><span class="prefix">+91</span><input id="phone" name="phone" type="tel" placeholder="99999 99999" required></div>
           </div>
           <div class="form-row">
             <label for="service">Service Type</label>
-            <select id="service" name="service">
+            <div class="input"><span class="icon">🚚</span><select id="service" name="service">
               <option>Full Load</option>
               <option>Part Load</option>
               <option>Parcel Services</option>
               <option>ODC Project Cargo</option>
               <option>Container Services</option>
-            </select>
+            </select></div>
           </div>
           <div class="form-row">
             <label for="message">Message</label>

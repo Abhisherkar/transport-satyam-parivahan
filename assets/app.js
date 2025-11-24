@@ -25,6 +25,20 @@ if(inqForm&&inqStatus){inqForm.addEventListener("submit",e=>{e.preventDefault();
 if(sendCancelBtn){sendCancelBtn.addEventListener("click",()=>{pendingInquiry=null;closeModal();});}
 if(sendWhatsBtn){sendWhatsBtn.addEventListener("click",()=>{if(!pendingInquiry)return;const {name,email,phone,service,message}=pendingInquiry;const text=encodeURIComponent(`Inquiry\\nName: ${name}\\nEmail: ${email}\\nPhone: ${phone}\\nService: ${service}\\nMessage: ${message}`);window.open(`https://wa.me/7972699155?text=${text}`,"_blank");inqStatus.textContent="Opening WhatsApp...";inqForm&&inqForm.reset();pendingInquiry=null;closeModal();});}
 if(sendEmailBtn){sendEmailBtn.addEventListener("click",async()=>{if(!pendingInquiry)return;const ok=await sendNotify("inquiry_email",{...pendingInquiry,fromEmail:pendingInquiry.email});inqStatus.textContent=ok?"Inquiry emailed to company." : "Email sending not configured.";inqForm&&inqForm.reset();pendingInquiry=null;closeModal();});}
+
+function initReveal(){try{const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");obs.unobserve(e.target);}})},{threshold:0.15});const selector=[
+  ".doc-section",
+  ".cards .card",
+  ".feature",
+  ".counter",
+  ".carousel",
+  ".contact-grid",
+  ".form",
+  ".service-item",
+  ".hero .hero-text",
+  ".hero .hero-media"
+].join(",");document.querySelectorAll(selector).forEach(el=>{el.classList.add("reveal");obs.observe(el);});}catch{}}
+document.addEventListener("DOMContentLoaded",initReveal);
 async function sendNotify(type,payload){try{const r=await fetch("/api/notify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type,payload})});if(r.ok)return true;throw new Error("fail");}catch{try{const r2=await fetch("http://localhost:5501/api/notify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type,payload})});return r2.ok;}catch{return false;}}}
 // disabled server notify for static hosting
 const joinForm=document.getElementById("joinForm");
