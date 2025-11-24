@@ -83,9 +83,10 @@ h2{font-size:28px;margin:0 0 16px}
  .ticker-track{display:flex;gap:32px;white-space:nowrap;animation:marquee 18s linear infinite;padding:10px}
  .ticker-item{color:var(--text)}
  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
- .carousel{overflow:hidden;border:1px solid var(--border);border-radius:12px}
- .carousel-track{display:flex;gap:16px;animation:slide 22s linear infinite;padding:14px}
- .badge{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--border)}
+.carousel{overflow:hidden;border:1px solid var(--border);border-radius:12px}
+.carousel-track{display:flex;gap:22px;animation:slide 22s linear infinite;padding:14px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--border)}
+.badge img{width:44px;height:44px;border-radius:50%;object-fit:cover}
  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
  .counters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
  .counter{border:1px solid var(--border);border-radius:12px;padding:16px;background:rgba(255,255,255,.06);text-align:center}

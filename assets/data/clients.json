@@ -1,8 +1,12 @@
 {
   "clients": [
-    { "name": "Client A", "logo": "assets/img/clients/client-a.png" },
-    { "name": "Client B", "logo": "assets/img/clients/client-b.png" },
-    { "name": "Partner X", "logo": "assets/img/clients/partner-x.png" },
-    { "name": "Partner Y", "logo": "assets/img/clients/partner-y.png" }
+    { "name": "Client A", "logo": "assets/img/clients/client-a.jpg" },
+    { "name": "Client B", "logo": "assets/img/clients/client-b.jpg" },
+    { "name": "Client C", "logo": "assets/img/clients/client-c.jpg" },
+    { "name": "Client D", "logo": "assets/img/clients/client-d.jpg" },
+    { "name": "Client E", "logo": "assets/img/clients/client-e.jpg" },
+    { "name": "Client F", "logo": "assets/img/clients/client-f.jpg" },
+    { "name": "Client G", "logo": "assets/img/clients/client-g.jpg" },
+    { "name": "Client H", "logo": "assets/img/clients/client-h.jpg" }
   ]
 }
