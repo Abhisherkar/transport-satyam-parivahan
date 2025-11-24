@@ -15,8 +15,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 .site-nav a:hover,.site-nav a.active{color:var(--text);background:rgba(255,255,255,.05)}
 .main{padding-top:12px}
 .main{padding-bottom:140px}
-.section{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.02))}
-.section:nth-of-type(even){background:linear-gradient(180deg,rgba(255,211,0,.06),rgba(255,255,255,.02))}
+.section{background:transparent}
 .section{display:none;padding:40px 0}
 .section.active{display:block}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:32px 0}
