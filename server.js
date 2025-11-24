@@ -23,9 +23,13 @@ function createTwilio(){
 function buildEmail(type,payload){
   const to=process.env.EMAIL_TO||"";
   const from=process.env.EMAIL_FROM||process.env.SMTP_USER||"";
-  const subject=type.toUpperCase()+" Notification";
-  const body=JSON.stringify(payload,null,2);
-  return {from,to,subject,text:body};
+  const fromEmail=(payload&&payload.fromEmail)||"";
+  const name=(payload&&payload.name)||"";
+  const subject=(type||"event").toUpperCase()+" Notification"+(name?` - ${name}`:"");
+  const body=JSON.stringify(payload||{},null,2);
+  const mail={from,to,subject,text:body};
+  if(fromEmail){mail.replyTo=fromEmail;}
+  return mail;
 }
 function buildWhatsappMessage(type,payload){
   const from=process.env.TWILIO_WHATSAPP_FROM||"";

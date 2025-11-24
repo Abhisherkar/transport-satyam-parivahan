@@ -20,8 +20,11 @@ module.exports=async (req,res)=>{
   try{
     if(smtpHost&&smtpPort&&smtpUser&&smtpPass&&emailTo){
       const transporter=nodemailer.createTransport({host:smtpHost,port:smtpPort,secure:smtpPort===465,auth:{user:smtpUser,pass:smtpPass}});
-      const subject=(type||"event").toUpperCase()+" Notification";
-      await transporter.sendMail({from:emailFrom,to:emailTo,subject,text:JSON.stringify(payload||{},null,2)});
+      const subject=(type||"event").toUpperCase()+" Notification"+(payload&&payload.name?` - ${payload.name}`:"");
+      const mail={from:emailFrom,to:emailTo,subject,text:JSON.stringify(payload||{},null,2)};
+      if(payload&&payload.fromEmail){mail.replyTo=String(payload.fromEmail);
+      }
+      await transporter.sendMail(mail);
       email=true;
     }
   }catch(e){email=false}

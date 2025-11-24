@@ -14,8 +14,18 @@ const panels=document.querySelectorAll(".tab-panel");
 tabs.forEach(t=>{t.addEventListener("click",()=>{tabs.forEach(x=>x.classList.remove("active"));t.classList.add("active");panels.forEach(p=>{p.classList.toggle("active",p.id==="tab-"+t.dataset.tab)});});});
 const inqForm=document.getElementById("inquiryForm");
 const inqStatus=document.getElementById("inq-status");
-if(inqForm&&inqStatus){inqForm.addEventListener("submit",e=>{e.preventDefault();const d=new FormData(inqForm);const name=String(d.get("name")||"").trim();const email=String(d.get("email")||"").trim();const phone=String(d.get("phone")||"").trim();const service=String(d.get("service")||"");const message=String(d.get("message")||"").trim();if(!name||!email||!phone||!message){inqStatus.textContent="Please fill in all fields.";return;}const text=encodeURIComponent(`Inquiry\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`);window.open(`https://wa.me/7972699155?text=${text}`,"_blank");inqStatus.textContent="Opening WhatsApp with your inquiry...";});}
-async function sendNotify(type,payload){try{await fetch("/api/notify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type,payload})});}catch{}}
+const sendModal=document.getElementById("sendModal");
+const sendEmailBtn=document.getElementById("sendEmail");
+const sendWhatsBtn=document.getElementById("sendWhatsApp");
+const sendCancelBtn=document.getElementById("sendCancel");
+let pendingInquiry=null;
+function openModal(){if(sendModal){sendModal.classList.add("open");sendModal.setAttribute("aria-hidden","false");}}
+function closeModal(){if(sendModal){sendModal.classList.remove("open");sendModal.setAttribute("aria-hidden","true");}}
+if(inqForm&&inqStatus){inqForm.addEventListener("submit",e=>{e.preventDefault();const d=new FormData(inqForm);const name=String(d.get("name")||"").trim();const email=String(d.get("email")||"").trim();const phone=String(d.get("phone")||"").trim();const service=String(d.get("service")||"");const message=String(d.get("message")||"").trim();if(!name||!email||!phone||!message){inqStatus.textContent="Please fill in all fields.";return;}pendingInquiry={name,email,phone,service,message};openModal();});}
+if(sendCancelBtn){sendCancelBtn.addEventListener("click",()=>{pendingInquiry=null;closeModal();});}
+if(sendWhatsBtn){sendWhatsBtn.addEventListener("click",()=>{if(!pendingInquiry)return;const {name,email,phone,service,message}=pendingInquiry;const text=encodeURIComponent(`Inquiry\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`);window.open(`https://wa.me/7972699155?text=${text}`,"_blank");inqStatus.textContent="Opening WhatsApp...";pendingInquiry=null;closeModal();});}
+if(sendEmailBtn){sendEmailBtn.addEventListener("click",async()=>{if(!pendingInquiry)return;const ok=await sendNotify("inquiry_email",{...pendingInquiry,fromEmail:pendingInquiry.email});inqStatus.textContent=ok?"Inquiry emailed to company." : "Email sending not configured.";pendingInquiry=null;closeModal();});}
+async function sendNotify(type,payload){try{const r=await fetch("/api/notify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type,payload})});if(r.ok)return true;throw new Error("fail");}catch{try{const r2=await fetch("http://localhost:5501/api/notify",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({type,payload})});return r2.ok;}catch{return false;}}}
 // disabled server notify for static hosting
 const joinForm=document.getElementById("joinForm");
 const joinStatus=document.getElementById("join-status");
