@@ -32,7 +32,6 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 .feature{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:18px;display:block;text-decoration:none;color:inherit}
 .feature .icon{font-size:24px}
 .feature img{width:100%;height:140px;object-fit:cover;border-radius:10px;border:1px solid var(--border);margin-bottom:8px}
-/* feature overlay */
 .feature{position:relative;overflow:hidden}
 .feature .overlay{position:absolute;left:18px;right:18px;bottom:18px;border-radius:10px;background:linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.45));padding:8px 10px;color:#fff;opacity:0;transition:opacity .25s ease}
 .feature:hover .overlay{opacity:1}
@@ -48,7 +47,6 @@ h2{font-size:28px;margin:0 0 16px}
 .card{border:1px solid var(--border);background:rgba(255,255,255,.04);border-radius:14px;padding:16px;text-decoration:none;color:var(--text);display:block}
 .card img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:8px;border:1px solid var(--border)}
 .card img.brand-tone,.feature img.brand-tone{filter:saturate(.85) contrast(.95) hue-rotate(-15deg) brightness(.95)}
-/* interactive overlay */
 .card{position:relative;overflow:hidden}
 .card .overlay{position:absolute;inset:16px;border-radius:10px;background:linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.4));display:flex;align-items:flex-end;justify-content:space-between;padding:12px 14px;color:#fff;opacity:0;transition:opacity .25s ease}
 .card:hover .overlay,.card:focus-within .overlay{opacity:1}
@@ -88,3 +86,15 @@ h2{font-size:28px;margin:0 0 16px}
 @media (max-width:900px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.grid.network{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
 @media (max-width:640px){.site-nav{display:none;position:fixed;top:var(--header-h);left:0;right:0;background:rgba(15,23,42,.98);padding:16px;border-bottom:1px solid var(--border);z-index:1000;max-height:calc(100vh - var(--header-h));overflow-y:auto;box-shadow:0 10px 30px rgba(0,0,0,.5)}.site-nav.open{display:flex;flex-direction:column;gap:8px}.nav-toggle{display:block}.hero-content h1{font-size:30px}.cards{grid-template-columns:1fr}.grid.network{grid-template-columns:1fr}.features{grid-template-columns:1fr}.btn{width:100%;text-align:center}.floating-whatsapp{bottom:96px}}
 :root{--brand-font:"Speed Run Demo",Inter;--narrow-font:"Swis721 Cn BT",Inter}
+.doc-page{padding:24px 0}
+.doc-wrap{max-width:900px;margin:0 auto;position:relative}
+.doc-header{text-align:center;margin-bottom:16px}
+.doc-title{font-size:36px;font-weight:700}
+.doc-sub{color:var(--muted)}
+.doc-section{border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.04);padding:16px;margin:14px 0}
+.doc-section h3{font-size:22px;margin:0 0 8px}
+.doc-section p{color:var(--text)}
+.doc-list{margin:8px 0 0 18px}
+.doc-watermark{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);width:360px;opacity:.08;filter:hue-rotate(-15deg) saturate(1.2)}
+.doc-stamp{position:fixed;top:120px;left:60px;width:90px;height:90px;border-radius:50%;object-fit:cover;opacity:.9;filter:hue-rotate(-15deg) saturate(1.2);box-shadow:0 8px 16px rgba(0,0,0,.2)}
+@media(max-width:640px){.doc-title{font-size:28px}.doc-watermark{width:260px}.doc-stamp{top:96px;left:16px;width:72px;height:72px}}
