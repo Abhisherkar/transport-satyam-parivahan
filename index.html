@@ -19,8 +19,8 @@
           <span class="slogan font-swis">Speed Safety Satisfaction, Excellence In Every Consignment</span>
         </span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <nav class="site-nav" aria-label="Primary">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-controls="primary-nav">☰</button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
@@ -37,11 +37,16 @@
         <div class="hero-content">
           <h1>Speed Safety Satisfaction, Excellence In Every Consignment</h1>
           <p class="font-swis">Fleet Owners & Transport Contractors • ODC Consignment all India Service</p>
+          <div class="chip-row">
+            <span class="chip">Pan‑India Network</span>
+            <span class="chip">ODC Ready</span>
+            <span class="chip">GPS Tracking</span>
+            <span class="chip">On‑time 98%</span>
+          </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#track">Track Consignments</a>
-            <a class="btn btn-outline" href="#services">Explore Services</a>
-            <a class="btn btn-outline" href="https://wa.me/7972699155"><svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:8px"><rect x="2" y="2" width="20" height="20" rx="4" fill="#25D366"/><circle cx="12" cy="12" r="7" fill="none" stroke="#fff" stroke-width="2.5"/><path d="M17.1 14.1c-.3.86-1.44 1.58-2.03 1.67-.54.08-1.24.12-2.98-.62-2.5-1.04-4.09-3.59-4.22-3.76-.12-.17-1.01-1.35-.98-2.6.03-1.25.72-1.84.98-2.1.26-.26.57-.32.76-.32h.55c.18 0 .42.03.64.49.22.46.74 1.78.81 1.9.07.12.11.26.02.42-.09.17-.14.27-.27.42-.12.15-.27.33-.39.45-.13.12-.26.25-.11.5.15.26.67 1.1 1.44 1.78 1 .88 1.84 1.16 2.1 1.29.26.13.41.11.56-.07.15-.18.64-.75.81-1 .17-.25.35-.21.58-.12.23.09 1.45.68 1.7.8.25.12.42.18.48.29.06.11.06.64-.24 1.5Z" fill="#fff"/></svg>WhatsApp 7972699155</a>
-            <a class="btn btn-outline" href="tel:7972699155"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:8px"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.1 .36 2.28 .55 3.49 .55a1 1 0 0 1 1 1v3.5a1 1 0 0 1 -1 1C11.61 21.79 2.21 12.39 2.21 1a1 1 0 0 1 1 -1H6.7a1 1 0 0 1 1 1c0 1.21 .19 2.39 .55 3.49a1 1 0 0 1 -.25 1.01l-2.38 2.29Z" fill="#ffd300"/></svg>Call 7972699155</a>
+            <a class="btn btn-primary" href="#services">Explore Services</a>
+            <a class="btn btn-outline" href="inquiry.html">Inquiry</a>
+            <a class="btn btn-outline" href="#track">Track Consignments</a>
           </div>
         </div>
         <div class="hero-media">
@@ -51,19 +56,19 @@
 
       <div class="container features">
         <a class="feature" href="service.html?service=Pan-India Coverage">
-          <img src="assets/img/Pan-India Coverage.jpg" alt="Pan-India Coverage" class="brand-tone" />
+          <img src="assets/img/Pan-India Coverage.jpg" alt="Pan-India Coverage" class="brand-tone" loading="lazy" />
           <div class="overlay">Read More</div>
           <h3>Pan-India Coverage</h3>
           <p>Connected hubs and satellite branches across major corridors.</p>
         </a>
         <a class="feature" href="service.html?service=Flexible Loads">
-          <img src="assets/img/Flexible Loads.jpg" alt="Flexible Loads" class="brand-tone" />
+          <img src="assets/img/Flexible Loads.jpg" alt="Flexible Loads" class="brand-tone" loading="lazy" />
           <div class="overlay">Read More</div>
           <h3>Flexible Loads</h3>
           <p>Parcel, part load, full load and ODC project cargo handling.</p>
         </a>
         <a class="feature" href="service.html?service=On-time Delivery">
-          <img src="assets/img/On-time Delivery.jpg" alt="On-time Delivery" class="brand-tone" />
+          <img src="assets/img/On-time Delivery.jpg" alt="On-time Delivery" class="brand-tone" loading="lazy" />
           <div class="overlay">Read More</div>
           <h3>On-time Delivery</h3>
           <p>Optimized routes and proactive exception management.</p>
@@ -90,6 +95,23 @@
         <h3>Prestigious Clients</h3>
         <div class="carousel" aria-label="Clients">
           <div id="clients-track" class="carousel-track"></div>
+        </div>
+        <div class="testimonials">
+          <h3>What Clients Say</h3>
+          <div class="testimonials-grid">
+            <div class="testimonial">
+              <div>“Reliable delivery and transparent communication across routes.”</div>
+              <div class="author">Operations Head, FMCG</div>
+            </div>
+            <div class="testimonial">
+              <div>“Handled ODC movement end‑to‑end with zero delays.”</div>
+              <div class="author">Project Manager, Engineering</div>
+            </div>
+            <div class="testimonial">
+              <div>“Consistent on‑time performance; smooth POD and tracking.”</div>
+              <div class="author">Supply Chain Lead, Retail</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -159,35 +181,60 @@
         <h2>Services</h2>
         <div class="cards">
           <a class="card" href="service.html?service=Parcel Services">
-            <img src="assets/img/Parcel Services.jpg" alt="Parcel Services" class="brand-tone" />
+            <img src="assets/img/Parcel Services.jpg" alt="Parcel Services" class="brand-tone" loading="lazy" />
             <div class="overlay"><span>Parcel Services</span><span class="cta">Read More</span></div>
-            <h3>Parcel Services</h3>
-            <p>Door-to-door parcel movement with digital PODs and status updates.</p>
-          </a>
+          <h3>Parcel Services</h3>
+          <p>Door-to-door parcel movement with digital PODs and status updates.</p>
+          <div class="chip-row">
+            <span class="chip sm">Door‑to‑Door</span>
+            <span class="chip sm">Digital POD</span>
+            <span class="chip sm">Status Updates</span>
+          </div>
+        </a>
           <a class="card" href="service.html?service=Full Load">
-            <img src="assets/img/Full Load.jpg" alt="Full Load" class="brand-tone" />
+            <img src="assets/img/Full Load.jpg" alt="Full Load" class="brand-tone" loading="lazy" />
             <div class="overlay"><span>Full Load</span><span class="cta">Read More</span></div>
-            <h3>Full Load</h3>
-            <p>Dedicated vehicles for point-to-point shipments with optimized routing.</p>
-          </a>
+          <h3>Full Load</h3>
+          <p>Dedicated vehicles for point-to-point shipments with optimized routing.</p>
+          <div class="chip-row">
+            <span class="chip sm">Dedicated</span>
+            <span class="chip sm">Optimized Routes</span>
+            <span class="chip sm">GPS Tracking</span>
+          </div>
+        </a>
           <a class="card" href="service.html?service=Part Load">
-            <img src="assets/img/Part Load.jpg" alt="Part Load" class="brand-tone" />
+            <img src="assets/img/Part Load.jpg" alt="Part Load" class="brand-tone" loading="lazy" />
             <div class="overlay"><span>Part Load</span><span class="cta">Read More</span></div>
-            <h3>Part Load</h3>
-            <p>Cost-efficient shared line-haul with hub and spoke operations.</p>
-          </a>
+          <h3>Part Load</h3>
+          <p>Cost-efficient shared line-haul with hub and spoke operations.</p>
+          <div class="chip-row">
+            <span class="chip sm">Shared Line‑haul</span>
+            <span class="chip sm">Hub & Spoke</span>
+            <span class="chip sm">Cost‑efficient</span>
+          </div>
+        </a>
           <a class="card" href="service.html?service=ODC Project Cargo">
-            <img src="assets/img/ODC Project Cargo.jpg" alt="ODC Project Cargo" class="brand-tone" />
+            <img src="assets/img/ODC Project Cargo.jpg" alt="ODC Project Cargo" class="brand-tone" loading="lazy" />
             <div class="overlay"><span>ODC Project Cargo</span><span class="cta">Read More</span></div>
-            <h3>ODC Project Cargo</h3>
-            <p>Planning and movement of over-dimensional cargo with escorts and permits.</p>
-          </a>
+          <h3>ODC Project Cargo</h3>
+          <p>Planning and movement of over-dimensional cargo with escorts and permits.</p>
+          <div class="chip-row">
+            <span class="chip sm">Escorts</span>
+            <span class="chip sm">Permits</span>
+            <span class="chip sm">Route Planning</span>
+          </div>
+        </a>
           <a class="card" href="service.html?service=Container Services">
-            <img src="assets/img/Container Services.jpg" alt="Container Services" class="brand-tone" />
+            <img src="assets/img/Container Services.jpg" alt="Container Services" class="brand-tone" loading="lazy" />
             <div class="overlay"><span>Container Services</span><span class="cta">Read More</span></div>
-            <h3>Container Services</h3>
-            <p>FTL/LTL containerized movement ensuring safety and compliance.</p>
-          </a>
+          <h3>Container Services</h3>
+          <p>FTL/LTL containerized movement ensuring safety and compliance.</p>
+          <div class="chip-row">
+            <span class="chip sm">FTL/LTL</span>
+            <span class="chip sm">Secure</span>
+            <span class="chip sm">Compliance</span>
+          </div>
+        </a>
         </div>
       </div>
     </section>
