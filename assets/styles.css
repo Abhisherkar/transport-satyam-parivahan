@@ -115,6 +115,8 @@ h2{font-size:28px;margin:0 0 16px}
 @media (max-width:640px){.site-nav{display:none;position:fixed;top:var(--header-h);left:0;right:0;background:rgba(15,23,42,.98);padding:16px;border-bottom:1px solid var(--border);z-index:1000;max-height:calc(100vh - var(--header-h));overflow-y:auto;box-shadow:0 10px 30px rgba(0,0,0,.5)}.site-nav.open{display:flex;flex-direction:column;gap:8px}.nav-toggle{display:block;margin-left:auto}.hero-content h1{font-size:30px}.cards{grid-template-columns:1fr}.grid.network{grid-template-columns:1fr}.features{grid-template-columns:1fr}.btn{width:100%;text-align:center}.floating-whatsapp{bottom:96px}.site-header .container{padding:0 8px}.brand{max-width:calc(100% - 60px)}.brand-name{font-size:34px}}
 :root{--brand-font:"Speed Run Demo",Inter;--narrow-font:"Swis721 Cn BT",Inter}
 .doc-page{padding:24px 0}
+:root{--brand-font:"Speed Run Demo",Inter;--narrow-font:"Swis721 Cn BT",Inter}
+.doc-page{padding:24px 0}
 .doc-wrap{max-width:900px;margin:0 auto;position:relative}
 .doc-header{text-align:center;margin-bottom:16px;position:relative;padding-left:96px;min-height:88px}
 .doc-title{font-size:36px;font-weight:700}
@@ -140,3 +142,4 @@ h2{font-size:28px;margin:0 0 16px}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 .inquiry .container{max-width:800px}
 .inquiry h2{max-width:800px;margin:0 auto 16px}
+@media (min-width:641px){.collapse-desktop .nav-toggle{display:block}.collapse-desktop .site-nav{display:none;position:absolute;top:var(--header-h);left:0;right:0;background:rgba(15,23,42,.98);padding:16px;border-bottom:1px solid var(--border);z-index:1000;box-shadow:0 10px 30px rgba(0,0,0,.5)}.collapse-desktop .site-nav.open{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}}
