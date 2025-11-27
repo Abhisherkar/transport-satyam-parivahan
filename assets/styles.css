@@ -15,6 +15,7 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 .site-nav{display:flex;gap:18px}
 .site-nav a{color:var(--muted);text-decoration:none;padding:10px;border-radius:8px}
 .site-nav a:hover,.site-nav a.active{color:var(--text);background:rgba(255,255,255,.05)}
+.site-nav a:focus,.btn:focus,.tab:focus{outline:2px solid var(--accent);outline-offset:2px}
 .main{padding-top:12px}
 .main{padding-bottom:140px}
 .section{background:transparent}
@@ -83,7 +84,6 @@ h2{font-size:28px;margin:0 0 16px}
 .status{margin:8px 0;color:var(--accent)}
 .modal{position:fixed;inset:0;display:none}
 .modal.open{display:block}
-.modal .backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5)}
 .modal .card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(20,20,20,.96);color:var(--text);border:1px solid var(--border);border-radius:12px;min-width:280px;max-width:90vw;padding:16px;box-shadow:0 12px 28px rgba(0,0,0,.4)}
 .modal .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
 .table-wrap{margin-top:16px}
@@ -107,7 +107,7 @@ h2{font-size:28px;margin:0 0 16px}
 .floating-whatsapp svg{display:block}
  .ticker{overflow:hidden;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.06)}
  .ticker-track{display:flex;gap:32px;white-space:nowrap;animation:marquee 18s linear infinite;padding:10px}
- .ticker-item{color:var(--text)}
+ .ticker-item{color:var(--text);font-family:var(--narrow-font)}
  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .carousel{overflow:hidden;border:1px solid var(--border);border-radius:12px}
 .carousel-track{display:flex;gap:24px;animation:slide 22s linear infinite;padding:16px}
@@ -163,3 +163,4 @@ h2{font-size:28px;margin:0 0 16px}
 @media(max-width:900px){.testimonials-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.testimonials-grid{grid-template-columns:1fr}}
 @media (min-width:641px){.collapse-desktop .nav-toggle{display:block}.collapse-desktop .site-nav{display:none;position:absolute;top:var(--header-h);left:0;right:0;background:rgba(0,0,0,.96);padding:16px;border-bottom:1px solid var(--border);z-index:1000;box-shadow:0 10px 30px rgba(0,0,0,.6)}.collapse-desktop .site-nav.open{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}}
+.contact-grid p{font-family:var(--narrow-font)}

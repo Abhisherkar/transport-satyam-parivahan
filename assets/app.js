@@ -2,15 +2,16 @@ const yearEl=document.getElementById("year");
 if(yearEl){yearEl.textContent=String(new Date().getFullYear());}
 const nav=document.querySelector(".site-nav");
 const navToggle=document.querySelector(".nav-toggle");
-if(navToggle&&nav){navToggle.addEventListener("click",()=>{const open=nav.classList.toggle("open");navToggle.setAttribute("aria-expanded",open?"true":"false");});}
+function setNav(open){if(!nav)return;if(open){nav.classList.add("open");}else{nav.classList.remove("open");}if(navToggle){navToggle.setAttribute("aria-expanded",open?"true":"false");}}
+if(navToggle&&nav){navToggle.addEventListener("click",()=>{const open=!nav.classList.contains("open");setNav(open);});}
 const mql=window.matchMedia('(max-width: 640px)');
 const header=document.querySelector('.site-header');
 function isCollapsible(){return mql.matches||(header&&header.classList.contains('collapse-desktop'));}
-document.addEventListener("click",e=>{if(!nav||!nav.classList.contains("open"))return;if(!isCollapsible())return;const t=e.target;if(nav.contains(t))return;if(navToggle&&navToggle.contains(t))return;nav.classList.remove("open");navToggle&&navToggle.setAttribute("aria-expanded","false");});
+document.addEventListener("click",e=>{if(!nav||!nav.classList.contains("open"))return;if(!isCollapsible())return;const t=e.target;if(nav.contains(t))return;if(navToggle&&navToggle.contains(t))return;setNav(false);});
 const sections=document.querySelectorAll(".section");
 const navLinks=document.querySelectorAll(".site-nav a");
 function setActive(hash){const id=(hash||"#home").replace("#","");sections.forEach(s=>{s.classList.toggle("active",s.id===id)});navLinks.forEach(a=>{a.classList.toggle("active",a.getAttribute("href")==="#"+id)});if(nav){nav.classList.remove("open");}window.scrollTo({top:0,behavior:"smooth"});}
-navLinks.forEach(a=>{a.addEventListener("click",()=>{if(nav){nav.classList.remove("open");navToggle&&navToggle.setAttribute("aria-expanded","false");}})});
+navLinks.forEach(a=>{a.addEventListener("click",()=>{setNav(false);})});
 window.addEventListener("hashchange",()=>setActive(location.hash));
 setActive(location.hash||"#home");
 const tabs=document.querySelectorAll(".tab");
@@ -27,7 +28,7 @@ function openModal(){if(sendModal){sendModal.classList.add("open");sendModal.set
 function closeModal(){if(sendModal){sendModal.classList.remove("open");sendModal.setAttribute("aria-hidden","true");}}
 if(inqForm&&inqStatus){inqForm.addEventListener("submit",e=>{e.preventDefault();const d=new FormData(inqForm);const name=String(d.get("name")||"").trim();const email=String(d.get("email")||"").trim();const phone=String(d.get("phone")||"").trim();const service=String(d.get("service")||"");const message=String(d.get("message")||"").trim();if(!name||!email||!phone||!message){inqStatus.textContent="Please fill in all fields.";return;}pendingInquiry={name,email,phone,service,message};openModal();});}
 if(sendCancelBtn){sendCancelBtn.addEventListener("click",()=>{pendingInquiry=null;closeModal();});}
-if(sendWhatsBtn){sendWhatsBtn.addEventListener("click",()=>{if(!pendingInquiry)return;const {name,email,phone,service,message}=pendingInquiry;const text=encodeURIComponent(`Inquiry\\nName: ${name}\\nEmail: ${email}\\nPhone: ${phone}\\nService: ${service}\\nMessage: ${message}`);window.open(`https://wa.me/7972699155?text=${text}`,"_blank");inqStatus.textContent="Opening WhatsApp...";inqForm&&inqForm.reset();pendingInquiry=null;closeModal();});}
+if(sendWhatsBtn){sendWhatsBtn.addEventListener("click",()=>{if(!pendingInquiry)return;const {name,email,phone,service,message}=pendingInquiry;const text=encodeURIComponent(`Inquiry\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}\n— Sent from Satyam Parivahan`);window.open(`https://wa.me/7972699155?text=${text}`,"_blank");inqStatus.textContent="Opening WhatsApp...";inqForm&&inqForm.reset();pendingInquiry=null;closeModal();});}
 if(sendEmailBtn){sendEmailBtn.addEventListener("click",async()=>{if(!pendingInquiry)return;const ok=await sendNotify("inquiry_email",{...pendingInquiry,fromEmail:pendingInquiry.email});inqStatus.textContent=ok?"Inquiry emailed to company." : "Email sending not configured.";inqForm&&inqForm.reset();pendingInquiry=null;closeModal();});}
 
 function initReveal(){try{const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");obs.unobserve(e.target);}})},{threshold:0.15});const selector=[

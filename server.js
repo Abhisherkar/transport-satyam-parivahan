@@ -25,8 +25,23 @@ function buildEmail(type,payload){
   const from=process.env.EMAIL_FROM||process.env.SMTP_USER||"";
   const fromEmail=(payload&&payload.fromEmail)||"";
   const name=(payload&&payload.name)||"";
-  const subject=(type||"event").toUpperCase()+" Notification"+(name?` - ${name}`:"");
-  const body=JSON.stringify(payload||{},null,2);
+  const service=(payload&&payload.service)||"";
+  const phone=(payload&&payload.phone)||"";
+  const message=(payload&&payload.message)||"";
+  const subject=type==="inquiry_email"?`New Inquiry - ${name}${service?` (${service})`:""}`:(type||"event").toUpperCase()+" Notification"+(name?` - ${name}`:"");
+  const lines=type==="inquiry_email"
+    ? [
+        "New Inquiry",
+        `Name: ${name}`,
+        `Email: ${payload&&payload.email||""}`,
+        `Phone: ${phone}`,
+        `Service: ${service}`,
+        "Message:",
+        message,
+        `Submitted: ${new Date().toISOString()}`,
+      ]
+    : Object.entries(payload||{}).map(([k,v])=>`${k}: ${typeof v==="string"?v:JSON.stringify(v)}`);
+  const body=lines.join("\n");
   const mail={from,to,subject,text:body};
   if(fromEmail){mail.replyTo=fromEmail;}
   return mail;
@@ -35,7 +50,13 @@ function buildWhatsappMessage(type,payload){
   const from=process.env.TWILIO_WHATSAPP_FROM||"";
   const to=process.env.WHATSAPP_TO||"";
   if(!from||!to)return null;
-  const body=type.toUpperCase()+": "+Object.entries(payload).map(([k,v])=>`${k}: ${typeof v==="string"?v:JSON.stringify(v)}`).join(" | ");
+  let body;
+  if(type==="inquiry_email"||type==="inquiry"){
+    const {name="",email="",phone="",service="",message=""}=payload||{};
+    body=`Inquiry\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`;
+  }else{
+    body=type.toUpperCase()+":\n"+Object.entries(payload||{}).map(([k,v])=>`${k}: ${typeof v==="string"?v:JSON.stringify(v)}`).join("\n");
+  }
   return {from:"whatsapp:"+from,to:"whatsapp:"+to,body};
 }
 app.post("/api/notify",async(req,res)=>{
