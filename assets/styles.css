@@ -175,3 +175,12 @@ h2{font-size:28px;margin:0 0 16px}
 @media(max-width:640px){.testimonials-grid{grid-template-columns:1fr}}
 @media (min-width:641px){.collapse-desktop .nav-toggle{display:block}.collapse-desktop .site-nav{display:none;position:absolute;top:var(--header-h);left:0;right:0;background:rgba(0,0,0,.96);padding:16px;border-bottom:1px solid var(--border);z-index:1000;box-shadow:0 10px 30px rgba(0,0,0,.6)}.collapse-desktop .site-nav.open{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}}
 .contact-grid p{font-family:var(--narrow-font)}
+.clients-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:10px}
+.client-card{border:1px solid var(--border);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.04));padding:16px;box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.client-card img{display:block;margin:0 auto 8px;width:auto;max-width:80%;height:72px;object-fit:contain;border-radius:8px;border:1px solid var(--border);background:transparent}
+.client-card.highlight{outline:2px solid var(--accent);box-shadow:0 10px 22px rgba(0,0,0,.28)}
+.client-card p{font-size:16px;line-height:1.65;color:var(--text)}
+.client-card:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,0,0,.3)}
+.client-card h3{display:none}
+.client-page .to-top{position:fixed;right:16px;bottom:76px;z-index:1000}
+@media(max-width:640px){.clients-grid{grid-template-columns:1fr}}
