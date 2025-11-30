@@ -182,5 +182,6 @@ h2{font-size:28px;margin:0 0 16px}
 .client-card p{font-size:16px;line-height:1.65;color:var(--text)}
 .client-card:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,0,0,.3)}
 .client-card h3{display:none}
-.client-page .to-top{position:fixed;right:16px;bottom:76px;z-index:1000}
+.client-page .to-top{position:fixed;right:16px;bottom:76px;z-index:1000;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;font-weight:800}
+@media(max-width:640px){.client-page .to-top{width:40px;height:40px;bottom:96px}}
 @media(max-width:640px){.clients-grid{grid-template-columns:1fr}}
