@@ -7,6 +7,8 @@
     { "name": "Client E", "logo": "assets/img/clients/client-e.jpg" },
     { "name": "Client F", "logo": "assets/img/clients/client-f.jpg" },
     { "name": "Client G", "logo": "assets/img/clients/client-g.jpg" },
-    { "name": "Client H", "logo": "assets/img/clients/client-h.jpg" }
+    { "name": "Client H", "logo": "assets/img/clients/client-h.jpg" },
+    { "name": "Client I", "logo": "assets/img/clients/client-i.jpg" },
+    { "name": "Client J", "logo": "assets/img/clients/client-j.jpg" }
   ]
 }
