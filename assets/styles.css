@@ -1,3 +1,8 @@
+@font-face{font-family:"SpeedRunDemo-Web";src:url("fonts/SpeedRunDemo.woff2") format("woff2"),url("fonts/SpeedRunDemo.woff") format("woff");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Swis721CnBT-Web";src:url("fonts/Swis721CnBTRoman.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Swis721CnBT-Web";src:url("fonts/Swis721 Cn BT Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Swis721CnBT-Web";src:url("fonts/Swis721CnBTItalic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Swis721CnBT-Web";src:url("fonts/Swiss721BoldCondensedItalicBTV1.woff2") format("woff2");font-weight:700;font-style:italic;font-display:swap}
 :root{--bg:#803500;--bg-2:#5f2700;--surface:#3e1d00;--text:#fff7e6;--muted:#ffd788;--primary:#ffd300;--primary-2:#ffdf66;--accent:#ffb800;--border:#4a2202;--whatsapp:#25D366;--header-h:128px;--header-bg:#6a2a00;--footer-bg:#3b1600;--input-bg:#1b1b1b;--input-border:#4a2202;--input-focus:#ffb800;--input-text:#fff7e6;--input-muted:#ffd788}
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -103,8 +108,13 @@ h2{font-size:28px;margin:0 0 16px}
  .footer-wrap .contact-inline{display:flex;gap:14px;align-items:center;flex-wrap:wrap;row-gap:6px}
  .footer-wrap .contact-inline a{color:var(--primary);white-space:nowrap}
  .footer-wrap .contact-inline svg{margin-right:6px}
+ .footer-wrap .contact-inline a[href*="wa.me"] svg{display:none}
+ .footer-wrap .contact-inline a[href*="wa.me"]::before{content:"";display:inline-block;width:18px;height:18px;background:url("img/icon/whatsapp.jpg") center/cover;margin-right:6px;border-radius:4px;vertical-align:middle}
+ .footer-wrap .contact-inline a[href*="instagram.com"] svg{display:none}
+ .footer-wrap .contact-inline a[href*="instagram.com"]::before{content:"";display:inline-block;width:18px;height:18px;background:url("img/icon/instagram.jpg") center/cover;margin-right:6px;border-radius:4px;vertical-align:middle}
 .floating-whatsapp{position:fixed;right:16px;bottom:16px;background:transparent;color:#fff;width:60px;height:60px;border-radius:14px;text-decoration:none;font-weight:700;box-shadow:0 10px 20px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center}
-.floating-whatsapp svg{display:block}
+.floating-whatsapp svg{display:none}
+.floating-whatsapp::before{content:"";display:block;width:36px;height:36px;background:url("img/icon/whatsapp.jpg") center/cover;border-radius:6px}
  .ticker{overflow:hidden;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.06)}
  .ticker-track{display:flex;gap:32px;white-space:nowrap;animation:marquee 18s linear infinite;padding:10px}
  .ticker-item{color:var(--text);font-family:var(--narrow-font)}
@@ -124,9 +134,9 @@ h2{font-size:28px;margin:0 0 16px}
  .ai-result{margin-top:10px;color:var(--primary)}
 @media (max-width:900px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.grid.network{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
 @media (max-width:640px){.site-nav{display:none;position:fixed;top:var(--header-h);left:0;right:0;background:rgba(0,0,0,.96);padding:16px;border-bottom:1px solid var(--border);z-index:1000;max-height:calc(100vh - var(--header-h));overflow-y:auto;box-shadow:0 10px 30px rgba(0,0,0,.6)}.site-nav.open{display:flex;flex-direction:column;gap:8px}.nav-toggle{display:block;margin-left:auto}.hero-content h1{font-size:30px}.cards{grid-template-columns:1fr}.grid.network{grid-template-columns:1fr}.features{grid-template-columns:1fr}.btn{width:100%;text-align:center}.floating-whatsapp{bottom:96px}.site-header .container{padding:0 8px}.brand{max-width:calc(100% - 60px)}.brand-name{font-size:34px}}
-:root{--brand-font:"Speed Run Demo",Inter;--narrow-font:"Swis721 Cn BT",Inter}
+:root{--brand-font:"SpeedRunDemo-Web",Inter;--narrow-font:"Swis721CnBT-Web",Inter}
 .doc-page{padding:24px 0}
-:root{--brand-font:"Speed Run Demo",Inter;--narrow-font:"Swis721 Cn BT",Inter}
+:root{--brand-font:"SpeedRunDemo-Web",Inter;--narrow-font:"Swis721CnBT-Web",Inter}
 .doc-page{padding:24px 0}
 .doc-wrap{max-width:900px;margin:0 auto;position:relative}
 .doc-header{text-align:center;margin-bottom:16px;position:relative;padding-left:96px;min-height:88px}
