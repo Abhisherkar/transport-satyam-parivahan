@@ -4,8 +4,8 @@ const twilio=require("twilio");
 module.exports=async (req,res)=>{
   if(req.method!=="POST"){res.status(405).json({error:"Method Not Allowed"});return;}
   const {type,payload}=req.body||{};
-  const emailTo=process.env.EMAIL_TO||"";
-  const emailFrom=process.env.EMAIL_FROM||process.env.SMTP_USER||"";
+  const emailTo=process.env.EMAIL_TO||"contact@satyamparivahan.com";
+  const emailFrom=process.env.EMAIL_FROM||process.env.SMTP_USER||"contact@satyamparivahan.com";
   const smtpHost=process.env.SMTP_HOST||"";
   const smtpPort=Number(process.env.SMTP_PORT||"0");
   const smtpUser=process.env.SMTP_USER||"";

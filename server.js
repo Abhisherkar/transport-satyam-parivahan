@@ -21,8 +21,8 @@ function createTwilio(){
   return twilio(sid,token);
 }
 function buildEmail(type,payload){
-  const to=process.env.EMAIL_TO||"";
-  const from=process.env.EMAIL_FROM||process.env.SMTP_USER||"";
+  const to=process.env.EMAIL_TO||"contact@satyamparivahan.com";
+  const from=process.env.EMAIL_FROM||process.env.SMTP_USER||"contact@satyamparivahan.com";
   const fromEmail=(payload&&payload.fromEmail)||"";
   const name=(payload&&payload.name)||"";
   const service=(payload&&payload.service)||"";
